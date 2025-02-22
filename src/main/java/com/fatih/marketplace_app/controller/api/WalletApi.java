@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,4 +40,6 @@ public interface WalletApi {
     @PutMapping(CHANGE)
     ResponseEntity<WalletResponse> changeBalance(@RequestBody @Valid ChangeBalanceRequest changeBalanceRequest);
 
+    @DeleteMapping
+    ResponseEntity<HttpStatus> deleteWallet(@RequestParam @NotNull UUID walletId);
 }

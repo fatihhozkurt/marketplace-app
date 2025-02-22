@@ -28,4 +28,8 @@ public class WalletDao {
     public Page<WalletEntity> findAll(Pageable pageable) {
         return walletRepository.findAll(pageable);
     }
+
+    public void deleteWallet(WalletEntity foundWallet) {
+        walletRepository.delete(foundWallet);
+    }
 }

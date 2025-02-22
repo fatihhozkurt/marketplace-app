@@ -59,16 +59,37 @@ public class WalletController implements WalletApi {
 
     @Override
     public ResponseEntity<WalletResponse> loadBalance(LoadBalanceRequest loadBalanceRequest) {
-        return null;
+
+        WalletEntity updatedWallet = walletService.loadBalance(loadBalanceRequest.walletId(), loadBalanceRequest.amount());
+        WalletResponse walletResponse = WalletMapper.INSTANCE.toWalletResponse(updatedWallet);
+
+        return new ResponseEntity<>(walletResponse, HttpStatus.OK);
     }
 
     @Override
     public ResponseEntity<WalletResponse> payment(PaymentRequest paymentRequest) {
-        return null;
+
+        WalletEntity updatedWallet = walletService.payment(paymentRequest.walletId(), paymentRequest.amount());
+        WalletResponse walletResponse = WalletMapper.INSTANCE.toWalletResponse(updatedWallet);
+
+        return new ResponseEntity<>(walletResponse, HttpStatus.OK);
+
     }
 
     @Override
     public ResponseEntity<WalletResponse> changeBalance(ChangeBalanceRequest changeBalanceRequest) {
-        return null;
+
+        WalletEntity updatedWallet = walletService.changeBalance(changeBalanceRequest.walletId(), changeBalanceRequest.amount());
+        WalletResponse walletResponse = WalletMapper.INSTANCE.toWalletResponse(updatedWallet);
+
+        return new ResponseEntity<>(walletResponse, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<HttpStatus> deleteWallet(UUID walletId) {
+
+        walletService.deleteWallet(walletId);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

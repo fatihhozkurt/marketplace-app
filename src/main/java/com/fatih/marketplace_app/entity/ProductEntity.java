@@ -1,5 +1,6 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fatih.marketplace_app.entity.listener.ProductListener;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,7 @@ import java.util.List;
 @Table(name = "products")
 @SQLDelete(sql = "UPDATE products SET record_status = true WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
+@EntityListeners(ProductListener.class)
 public class ProductEntity extends BaseEntity {
 
     @Column(name = "product_name", nullable = false, length = 50)
