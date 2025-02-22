@@ -25,8 +25,8 @@ import java.util.List;
 @SQLRestriction("record_status <> 'true'")
 public class OrderEntity extends BaseEntity {
 
-    @Column(name = "total_amount", nullable = false, precision = 10, scale = 2)
-    private BigDecimal totalAmount;
+    @Column(name = "final_price", nullable = false, precision = 10, scale = 2)
+    private BigDecimal finalPrice;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "order_status", nullable = false, length = 10)

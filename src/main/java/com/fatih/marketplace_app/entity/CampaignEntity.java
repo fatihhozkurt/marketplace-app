@@ -35,7 +35,7 @@ public class CampaignEntity extends BaseEntity {
     private String campaignCode;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "campaign_type", nullable = false, length = 10, unique = true)
+    @Column(name = "campaign_type", nullable = false, length = 20, unique = true)
     private CampaignType campaignType;
 
     @Column(name = "discount_value", nullable = false, scale = 2, precision = 6)
@@ -47,7 +47,6 @@ public class CampaignEntity extends BaseEntity {
     @Column(name = "end_date", nullable = false)
     private LocalDateTime endDate;
 
-    //Checked
     @OneToMany(mappedBy = "campaign", fetch = FetchType.LAZY)
     private List<CartEntity> cart;
 }

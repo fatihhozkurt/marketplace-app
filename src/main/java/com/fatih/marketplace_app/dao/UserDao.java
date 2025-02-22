@@ -34,4 +34,12 @@ public class UserDao {
 
         return userRepository.findAll(pageable);
     }
+
+    public Optional<UserEntity> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public Optional<UserEntity> findByPhone(String phone) {
+        return userRepository.findByPhone(phone);
+    }
 }
