@@ -67,6 +67,26 @@ public class UserManager implements UserService {
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    @Override
+    public UserEntity getUserByEmail(String email) {
+        return userDao.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException(messageSource
+                        .getMessage("backend.exceptions.US002",
+                                new Object[]{email},
+                                Locale.getDefault())));
+    }
+
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    @Override
+    public UserEntity getUserByPhone(String phone) {
+        return userDao.findByPhone(phone)
+                .orElseThrow(() -> new ResourceNotFoundException(messageSource
+                        .getMessage("backend.exceptions.US002",
+                                new Object[]{phone},
+                                Locale.getDefault())));
+    }
+
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public UserEntity checkUpdateConditions(UserEntity foundUser, UserEntity requestedUser) {
 
         if (requestedUser.getFirstName() != null) {

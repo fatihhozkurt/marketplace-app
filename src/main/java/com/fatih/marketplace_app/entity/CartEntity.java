@@ -10,6 +10,7 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 import org.springframework.beans.factory.support.ManagedArray;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,10 @@ import java.util.List;
 @SQLDelete(sql = "UPDATE carts SET record_status = true WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
 public class CartEntity extends BaseEntity {
+
+
+    @Column(name = "cart_price", nullable = false, precision = 6, scale = 2)
+    private BigDecimal cartPrice;
 
     //Checked
     @OneToOne(fetch = FetchType.LAZY)

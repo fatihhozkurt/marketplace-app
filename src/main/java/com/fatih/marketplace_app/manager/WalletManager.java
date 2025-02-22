@@ -41,7 +41,7 @@ public class WalletManager implements WalletService {
     @Override
     public WalletEntity getWalletById(UUID walletId) {
         return walletDao.findById(walletId).orElseThrow(() ->
-                new DataAlreadyExistException(messageSource.getMessage("backend.exceptions.WL001",
+                new DataAlreadyExistException(messageSource.getMessage("backend.exceptions.WLT001",
                         new Object[]{walletId},
                         Locale.getDefault())));
     }
@@ -77,7 +77,7 @@ public class WalletManager implements WalletService {
 
         if (foundWallet.getBalance().compareTo(amount) <= 0) {
             throw new BusinessException(messageSource
-                    .getMessage("backend.exceptions.WL003",
+                    .getMessage("backend.exceptions.WLT003",
                             new Object[]{},
                             Locale.getDefault()));
         }
@@ -93,7 +93,7 @@ public class WalletManager implements WalletService {
 
         if (amount.compareTo(BigDecimal.valueOf(50)) <= 0) {
             throw new BusinessException(
-                    messageSource.getMessage("backend.exceptions.WL004", new Object[]{}, Locale.getDefault())
+                    messageSource.getMessage("backend.exceptions.WLT004", new Object[]{}, Locale.getDefault())
             );
         }
 
@@ -106,7 +106,7 @@ public class WalletManager implements WalletService {
     public void checkExistingWallet(UserEntity foundUser) {
         if (foundUser.getWallet() != null) {
             throw new DataAlreadyExistException(messageSource
-                    .getMessage("backend.exceptions.WL002",
+                    .getMessage("backend.exceptions.WLT002",
                             new Object[]{foundUser.getId()},
                             Locale.getDefault()));
         }

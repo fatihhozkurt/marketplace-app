@@ -18,4 +18,8 @@ public interface UserService {
     void deleteUser(UUID userId);
 
     UserEntity updateUser(UserEntity userEntity);
+
+    UserEntity getUserByEmail(String email);
+
+    UserEntity getUserByPhone(String phone);
 }

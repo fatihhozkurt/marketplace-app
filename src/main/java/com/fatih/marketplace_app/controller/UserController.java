@@ -7,6 +7,7 @@ import com.fatih.marketplace_app.dto.response.user.UserResponse;
 import com.fatih.marketplace_app.entity.UserEntity;
 import com.fatih.marketplace_app.manager.service.UserService;
 import com.fatih.marketplace_app.mapper.UserMapper;
+import com.fatih.marketplace_app.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -72,5 +73,23 @@ public class UserController implements UserApi {
         UserResponse userResponse = UserMapper.INSTANCE.toUserResponse(updatedUser);
 
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UserResponse> getUserByEmail(String email) {
+
+        UserEntity foundUser = userService.getUserByEmail(email);
+        UserResponse userResponse = UserMapper.INSTANCE.toUserResponse(foundUser);
+
+        return new ResponseEntity<>(userResponse, HttpStatus.FOUND);
+    }
+
+    @Override
+    public ResponseEntity<UserResponse> getUserByPhone(String phone) {
+
+        UserEntity foundUser = userService.getUserByPhone(phone);
+        UserResponse userResponse = UserMapper.INSTANCE.toUserResponse(foundUser);
+
+        return new ResponseEntity<>(userResponse, HttpStatus.FOUND);
     }
 }

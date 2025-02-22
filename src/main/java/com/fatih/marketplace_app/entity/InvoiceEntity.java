@@ -30,9 +30,6 @@ public class InvoiceEntity extends BaseEntity {
     @Column(name = "invoice_date", nullable = false)
     private LocalDateTime invoiceDate;
 
-    @Column(name = "order_amount", nullable = false, precision = 6, scale = 2)
-    private BigDecimal orderAmount;
-
     @Column(name = "billing_address", nullable = false, length = 255)
     private String billingAddress;
 

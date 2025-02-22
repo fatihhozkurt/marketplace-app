@@ -1,6 +1,5 @@
 package com.fatih.marketplace_app.manager.service;
 
-import com.fatih.marketplace_app.dto.request.product.UpdateProductRequest;
 import com.fatih.marketplace_app.entity.ProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

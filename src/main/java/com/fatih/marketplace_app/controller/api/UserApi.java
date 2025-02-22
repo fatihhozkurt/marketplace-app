@@ -4,7 +4,7 @@ import com.fatih.marketplace_app.dto.request.user.CreateUserRequest;
 import com.fatih.marketplace_app.dto.request.user.UpdateUserRequest;
 import com.fatih.marketplace_app.dto.response.user.UserResponse;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -35,4 +35,10 @@ public interface UserApi {
 
     @PutMapping
     ResponseEntity<UserResponse> updateUser(@RequestBody @Valid UpdateUserRequest updateUserRequest);
+
+    @GetMapping(EMAIL)
+    ResponseEntity<UserResponse> getUserByEmail(@RequestParam("email") @NotNull @NotBlank @Email @Size(min = 13, max = 345) String email);
+
+    @GetMapping(PHONE)
+    ResponseEntity<UserResponse> getUserByPhone(@RequestParam("phone") @NotNull @NotBlank @Pattern(regexp = "^(\\+90|0)?5\\d{9}$") @Size(min = 13, max = 345) String phone);
 }
