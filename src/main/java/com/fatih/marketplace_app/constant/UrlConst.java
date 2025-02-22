@@ -11,8 +11,8 @@ public final class UrlConst {
     public final static String ID = "/id";
 
 
-    public static final String PAY = "/buy";
-    public static final String LOAD = "/sell";
+    public static final String PAY = "/pay";
+    public static final String LOAD = "/load";
     public static final String CHANGE = "/change";
 
 }
