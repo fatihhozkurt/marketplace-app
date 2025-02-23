@@ -18,8 +18,8 @@ public record CreateProductRequest(
         String productDescription,
 
         @NotNull(message = "Product price cannot be null")
-        @DecimalMin(value = "1.00", message = "Product price must be at least 1.00 TL")
-        @Digits(integer = 6, fraction = 2, message = "Product price must have at most 6 digits before the decimal and 2 digits after")
+        @DecimalMin(value = "1.00")
+        @Digits(integer = 12, fraction = 2)
         BigDecimal productPrice,
 
         @NotNull

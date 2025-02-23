@@ -1,19 +1,22 @@
-package com.fatih.marketplace_app.dto.request.cart;
+package com.fatih.marketplace_app.dto.request.cartItem;
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.PositiveOrZero;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public record UpdateCartRequest(
-        @NotNull
-        UUID cartId,
+public record UpdateCartItemRequest(
 
-        @PositiveOrZero
+        @NotNull
+        UUID cartItemId,
+
+        @Positive
+        Integer productQuantity,
+
+        @Positive
         @Digits(integer = 12, fraction = 2)
-        BigDecimal cartPrice
+        BigDecimal cartItemPrice
 ) {
 }

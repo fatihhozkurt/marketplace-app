@@ -17,8 +17,8 @@ public record UpdateProductRequest(
         @OptionalFieldValidation(notBlank = true, min = 50, max = 500)
         String productDescription,
 
-        @DecimalMin(value = "0.01", message = "Product price must be at least 0.01")
-        @Digits(integer = 6, fraction = 2, message = "Product price must have at most 6 digits before the decimal and 2 digits after")
+        @DecimalMin(value = "0.01")
+        @Digits(integer = 12, fraction = 2)
         BigDecimal productPrice,
 
         @PositiveOrZero

@@ -38,7 +38,7 @@ public class CampaignEntity extends BaseEntity {
     @Column(name = "campaign_type", nullable = false, length = 20)
     private CampaignType campaignType;
 
-    @Column(name = "discount_value", nullable = false, scale = 2, precision = 6)
+    @Column(name = "discount_value", nullable = false, scale = 2, precision = 12)
     private BigDecimal discountValue;
 
     @Column(name = "start_date", nullable = false)

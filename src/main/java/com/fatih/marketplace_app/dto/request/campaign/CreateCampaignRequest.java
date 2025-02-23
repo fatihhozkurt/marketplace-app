@@ -28,6 +28,7 @@ public record CreateCampaignRequest(
 
         @NotNull
         @Positive
+        @Digits(integer = 12, fraction = 2)
         BigDecimal discountValue,
 
         @NotNull

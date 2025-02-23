@@ -29,7 +29,7 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "product_description", nullable = false, length = 500)
     private String productDescription;
 
-    @Column(name = "product_price", nullable = false, precision = 6, scale = 2)
+    @Column(name = "product_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal productPrice;
 
     @Column(name = "stock_quantity", nullable = false)

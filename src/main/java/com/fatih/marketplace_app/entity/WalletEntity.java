@@ -25,7 +25,7 @@ import java.util.List;
 @EntityListeners(WalletListener.class)
 public class WalletEntity extends BaseEntity {
 
-    @Column(name = "balance", nullable = false, scale = 2, precision = 6)
+    @Column(name = "balance", nullable = false, scale = 2, precision = 12)
     private BigDecimal balance;
 
     @OneToOne(fetch = FetchType.LAZY)
