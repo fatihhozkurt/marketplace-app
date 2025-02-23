@@ -32,4 +32,8 @@ public class WalletDao {
     public void deleteWallet(WalletEntity foundWallet) {
         walletRepository.delete(foundWallet);
     }
+
+    public Optional<WalletEntity> findByUserId(UUID userId) {
+        return walletRepository.findByUser_Id(userId);
+    }
 }

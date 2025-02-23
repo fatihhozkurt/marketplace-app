@@ -23,7 +23,7 @@ public record CreateProductRequest(
         BigDecimal productPrice,
 
         @NotNull
-        @PositiveOrZero
+        @Positive
         Long stockQuantity
 ) {
 }

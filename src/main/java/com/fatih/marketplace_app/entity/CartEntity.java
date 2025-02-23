@@ -1,5 +1,6 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fatih.marketplace_app.entity.listener.CartListener;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,8 +21,9 @@ import java.util.List;
 @NoArgsConstructor
 @SuperBuilder
 @Table(name = "carts")
-@SQLDelete(sql = "UPDATE carts SET record_status = true WHERE id = ?")
+@SQLDelete(sql = "UPDATE carts SET record_status = true, cart_price = 0 WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
+@EntityListeners(CartListener.class)
 public class CartEntity extends BaseEntity {
 
 
@@ -44,5 +46,4 @@ public class CartEntity extends BaseEntity {
 
     @OneToOne(mappedBy = "cart")
     private OrderEntity order;
-
 }

@@ -39,15 +39,12 @@ public class UserEntity extends BaseEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
-    //Checked
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private WalletEntity wallet;
 
-    //Checked
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private CartEntity cart;
 
-    //Checked
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<InvoiceEntity> invoices;
+    private List<OrderEntity> orders;
 }

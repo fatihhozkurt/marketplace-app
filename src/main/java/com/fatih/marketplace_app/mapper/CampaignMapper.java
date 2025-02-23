@@ -2,11 +2,9 @@ package com.fatih.marketplace_app.mapper;
 
 import com.fatih.marketplace_app.dto.request.campaign.CreateCampaignRequest;
 import com.fatih.marketplace_app.dto.request.campaign.UpdateCampaignRequest;
-import com.fatih.marketplace_app.dto.response.campaign.ApplyCampaignResponse;
 import com.fatih.marketplace_app.dto.response.campaign.CampaignResponse;
 import com.fatih.marketplace_app.entity.CampaignEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -23,8 +21,4 @@ public interface CampaignMapper {
     CampaignResponse toCampaignResponse(CampaignEntity campaignEntity);
 
     List<CampaignResponse> toCampaignResponseList(List<CampaignEntity> campaignEntities);
-
-    @Mapping(target = "cartId", source = "cart.id")
-    @Mapping(target = "discountedCartPrice", source = "cart.cartPrice")
-    ApplyCampaignResponse toApplyCampaignResponse(CampaignEntity campaignEntity);
 }

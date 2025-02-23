@@ -35,7 +35,7 @@ public class CampaignEntity extends BaseEntity {
     private String campaignCode;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "campaign_type", nullable = false, length = 20, unique = true)
+    @Column(name = "campaign_type", nullable = false, length = 20)
     private CampaignType campaignType;
 
     @Column(name = "discount_value", nullable = false, scale = 2, precision = 6)

@@ -3,8 +3,11 @@ package com.fatih.marketplace_app.manager;
 import com.fatih.marketplace_app.dao.CampaignDao;
 import com.fatih.marketplace_app.entity.CampaignEntity;
 import com.fatih.marketplace_app.entity.CartEntity;
+import com.fatih.marketplace_app.exception.BusinessException;
+import com.fatih.marketplace_app.exception.DataAlreadyExistException;
 import com.fatih.marketplace_app.exception.ResourceNotFoundException;
 import com.fatih.marketplace_app.manager.service.CampaignService;
+import com.fatih.marketplace_app.manager.service.CartService;
 import com.fatih.marketplace_app.strategy.DiscountStrategyFactory;
 import com.fatih.marketplace_app.strategy.DiscountStrategyService;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +34,14 @@ public class CampaignManager implements CampaignService {
     @Transactional
     @Override
     public CampaignEntity createCampaign(CampaignEntity requestedCampaign) {
+
+        if (requestedCampaign.getDiscountValue().compareTo(BigDecimal.ZERO) <= 0) {
+            throw new ResourceNotFoundException(messageSource
+                    .getMessage("backend.exceptions.CMP004",
+                            new Object[]{},
+                            Locale.getDefault()));
+        }
+
         return campaignDao.save(requestedCampaign);
     }
 
@@ -55,7 +66,7 @@ public class CampaignManager implements CampaignService {
     public CampaignEntity updateCampaign(CampaignEntity requestedCampaign) {
 
         CampaignEntity foundCampaign = getCampaignById(requestedCampaign.getId());
-        CampaignEntity updatedCampaign = checkUpdateCampaign(requestedCampaign, foundCampaign);
+        CampaignEntity updatedCampaign = checkUpdateConditions(requestedCampaign, foundCampaign);
 
         return campaignDao.save(updatedCampaign);
     }
@@ -80,7 +91,6 @@ public class CampaignManager implements CampaignService {
     }
 
 
-    //TODO: Finish it
     @Transactional
     @Override
     public CartEntity applyCampaign(String campaignCode, UUID cartId) {
@@ -88,18 +98,26 @@ public class CampaignManager implements CampaignService {
         CartEntity foundCart = cartService.getCartById(cartId);
         CampaignEntity foundCampaign = getCampaignByCampaignCode(campaignCode);
 
+        if (foundCart.getCampaign() != null) {
+            throw new ResourceNotFoundException(messageSource
+                    .getMessage("backend.exceptions.CMP005",
+                            new Object[]{},
+                            Locale.getDefault()));
+        }
+
         DiscountStrategyService discountStrategy = discountStrategyFactory.getStrategy(foundCampaign.getCampaignType());
 
         BigDecimal discountedPrice = discountStrategy.applyDiscount(foundCart.getCartPrice(), foundCampaign.getDiscountValue());
 
         foundCart.setCartPrice(discountedPrice);
+        foundCart.setCampaign(foundCampaign);
         cartService.updateCart(foundCart);
 
         return foundCart;
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    public CampaignEntity checkUpdateCampaign(CampaignEntity requestedCampaign, CampaignEntity foundCampaign) {
+    public CampaignEntity checkUpdateConditions(CampaignEntity requestedCampaign, CampaignEntity foundCampaign) {
 
         if (requestedCampaign.getCampaignName() != null) {
             foundCampaign.setCampaignName(requestedCampaign.getCampaignName());

@@ -24,21 +24,16 @@ public record CreateCampaignRequest(
         String campaignCode,
 
         @NotNull
-        @NotBlank
-        @Size(min = 5, max = 20)
         CampaignType campaignType,
 
         @NotNull
-        @NotBlank
         @Positive
         BigDecimal discountValue,
 
         @NotNull
-        @NotBlank
         LocalDateTime startDate,
 
         @NotNull
-        @NotBlank
         LocalDateTime endDate
 ) {
 }

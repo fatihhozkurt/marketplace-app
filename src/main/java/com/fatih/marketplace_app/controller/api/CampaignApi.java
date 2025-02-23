@@ -41,6 +41,6 @@ public interface CampaignApi {
     @GetMapping(CODE)
     ResponseEntity<CampaignResponse> getCampaignByCampaignCode(@RequestParam("campaignCode") @NotNull @Size(min = 5, max = 20) String campaignCode);
 
-    @PostMapping(APPLY)
+    @PutMapping(APPLY)
     ResponseEntity<ApplyCampaignResponse> applyCampaign(@RequestBody @Valid ApplyCampaignRequest applyCampaignRequest);
 }

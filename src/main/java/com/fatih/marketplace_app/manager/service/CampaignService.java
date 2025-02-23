@@ -24,5 +24,5 @@ public interface CampaignService {
 
     CampaignEntity getCampaignByCampaignCode(String campaignCode);
 
-    CartEntity applyCampaign(@NotNull String campaignCode, @NotNull @Positive UUID cartId);
+    CartEntity applyCampaign(@NotNull String campaignCode, @NotNull UUID cartId);
 }
