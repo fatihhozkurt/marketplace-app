@@ -40,5 +40,5 @@ public interface UserApi {
     ResponseEntity<UserResponse> getUserByEmail(@RequestParam("email") @NotNull @NotBlank @Email @Size(min = 13, max = 345) String email);
 
     @GetMapping(PHONE)
-    ResponseEntity<UserResponse> getUserByPhone(@RequestParam("phone") @NotNull @NotBlank @Pattern(regexp = "^(\\+90|0)?5\\d{9}$") @Size(min = 13, max = 345) String phone);
+    ResponseEntity<UserResponse> getUserByPhone(@RequestParam("phone") @NotNull @NotBlank @Pattern(regexp = "^(\\+90|0)?5\\d{9}$") String phone);
 }

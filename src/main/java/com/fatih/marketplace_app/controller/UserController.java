@@ -7,7 +7,6 @@ import com.fatih.marketplace_app.dto.response.user.UserResponse;
 import com.fatih.marketplace_app.entity.UserEntity;
 import com.fatih.marketplace_app.manager.service.UserService;
 import com.fatih.marketplace_app.mapper.UserMapper;
-import com.fatih.marketplace_app.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

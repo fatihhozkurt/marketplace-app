@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @SuperBuilder
 @Table(name = "cart_items")
-@SQLDelete(sql = "UPDATE cart_items SET record_status = true WHERE id = ?")
+@SQLDelete(sql = "UPDATE cart_items SET record_status = true, cart_item_price = 0, product_quantity = 0 WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
 public class CartItemEntity extends BaseEntity {
 

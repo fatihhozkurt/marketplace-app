@@ -2,12 +2,14 @@ package com.fatih.marketplace_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
+@EnableScheduling
 @SpringBootApplication
 public class MarketplaceAppApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MarketplaceAppApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MarketplaceAppApplication.class, args);
+    }
 
 }

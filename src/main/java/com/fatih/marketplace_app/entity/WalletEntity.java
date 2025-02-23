@@ -11,6 +11,7 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,7 +20,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @SuperBuilder
 @Table(name = "wallets")
-@SQLDelete(sql = "UPDATE wallets SET record_status = true WHERE id = ?")
+@SQLDelete(sql = "UPDATE wallets SET record_status = true, balance = 0 WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
 @EntityListeners(WalletListener.class)
 public class WalletEntity extends BaseEntity {
@@ -27,8 +28,12 @@ public class WalletEntity extends BaseEntity {
     @Column(name = "balance", nullable = false, scale = 2, precision = 6)
     private BigDecimal balance;
 
-    //Checked
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private UserEntity user;
+
+    @OneToMany(mappedBy = "wallet")
+    private List<OrderEntity> orders;
+
+
 }

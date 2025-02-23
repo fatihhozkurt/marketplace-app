@@ -25,4 +25,6 @@ public interface WalletService {
     WalletEntity payment(@NotNull UUID walletId, @NotNull @Positive BigDecimal amount);
 
     WalletEntity changeBalance(@NotNull UUID walletId, @NotNull @PositiveOrZero BigDecimal amount);
+
+    WalletEntity getWalletByUserId(UUID userId);
 }

@@ -2,6 +2,7 @@ package com.fatih.marketplace_app.manager;
 
 import com.fatih.marketplace_app.dao.UserDao;
 import com.fatih.marketplace_app.entity.UserEntity;
+import com.fatih.marketplace_app.exception.DataAlreadyExistException;
 import com.fatih.marketplace_app.exception.ResourceNotFoundException;
 import com.fatih.marketplace_app.manager.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ public class UserManager implements UserService {
     @Transactional
     @Override
     public UserEntity createUser(UserEntity requestedUser) {
+        checkEmailAndPhone(requestedUser);
         return userDao.save(requestedUser);
     }
 
@@ -63,6 +65,7 @@ public class UserManager implements UserService {
         UserEntity foundUser = getUserById(requestedUser.getId());
         UserEntity updatedUser = checkUpdateConditions(foundUser, requestedUser);
 
+
         return userDao.save(updatedUser);
     }
 
@@ -81,7 +84,7 @@ public class UserManager implements UserService {
     public UserEntity getUserByPhone(String phone) {
         return userDao.findByPhone(phone)
                 .orElseThrow(() -> new ResourceNotFoundException(messageSource
-                        .getMessage("backend.exceptions.US002",
+                        .getMessage("backend.exceptions.US003",
                                 new Object[]{phone},
                                 Locale.getDefault())));
     }
@@ -105,5 +108,21 @@ public class UserManager implements UserService {
             foundUser.setPassword(requestedUser.getPassword());
         }
         return foundUser;
+    }
+
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    public void checkEmailAndPhone(UserEntity requestedUser) {
+        if (userDao.findByEmail(requestedUser.getEmail()).isPresent()) {
+            throw new DataAlreadyExistException(messageSource
+                    .getMessage("backend.exceptions.US004",
+                            new Object[]{requestedUser.getEmail()},
+                            Locale.getDefault()));
+        }
+        if (userDao.findByPhone(requestedUser.getPhone()).isPresent()) {
+            throw new DataAlreadyExistException(messageSource
+                    .getMessage("backend.exceptions.US005",
+                            new Object[]{requestedUser.getPhone()},
+                            Locale.getDefault()));
+        }
     }
 }

@@ -5,6 +5,7 @@ import com.fatih.marketplace_app.entity.UserEntity;
 import com.fatih.marketplace_app.entity.WalletEntity;
 import com.fatih.marketplace_app.exception.BusinessException;
 import com.fatih.marketplace_app.exception.DataAlreadyExistException;
+import com.fatih.marketplace_app.exception.ResourceNotFoundException;
 import com.fatih.marketplace_app.manager.service.UserService;
 import com.fatih.marketplace_app.manager.service.WalletService;
 import lombok.RequiredArgsConstructor;
@@ -63,6 +64,12 @@ public class WalletManager implements WalletService {
     @Override
     public WalletEntity loadBalance(UUID walletId, BigDecimal amount) {
 
+        if (amount.compareTo(BigDecimal.valueOf(50)) < 0) {
+            throw new BusinessException(
+                    messageSource.getMessage("backend.exceptions.WLT004", new Object[]{}, Locale.getDefault())
+            );
+        }
+
         WalletEntity foundWallet = getWalletById(walletId);
         foundWallet.setBalance(foundWallet.getBalance().add(amount));
 
@@ -73,13 +80,18 @@ public class WalletManager implements WalletService {
     @Override
     public WalletEntity payment(UUID walletId, BigDecimal amount) {
 
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new BusinessException(
+                    messageSource.getMessage("backend.exceptions.WLT007", new Object[]{}, Locale.getDefault())
+            );
+        }
+
         WalletEntity foundWallet = getWalletById(walletId);
 
         if (foundWallet.getBalance().compareTo(amount) <= 0) {
-            throw new BusinessException(messageSource
-                    .getMessage("backend.exceptions.WLT003",
-                            new Object[]{},
-                            Locale.getDefault()));
+            throw new BusinessException(
+                    messageSource.getMessage("backend.exceptions.WLT003", new Object[]{}, Locale.getDefault())
+            );
         }
 
         foundWallet.setBalance(foundWallet.getBalance().subtract(amount));
@@ -91,15 +103,26 @@ public class WalletManager implements WalletService {
     public WalletEntity changeBalance(UUID walletId, BigDecimal amount) {
         WalletEntity foundWallet = getWalletById(walletId);
 
-        if (amount.compareTo(BigDecimal.valueOf(50)) <= 0) {
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
             throw new BusinessException(
-                    messageSource.getMessage("backend.exceptions.WLT004", new Object[]{}, Locale.getDefault())
+                    messageSource.getMessage("backend.exceptions.WLT006", new Object[]{}, Locale.getDefault())
             );
         }
 
         foundWallet.setBalance(amount);
 
         return walletDao.save(foundWallet);
+    }
+
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    @Override
+    public WalletEntity getWalletByUserId(UUID userId) {
+
+        userService.getUserById(userId);
+        return walletDao.findByUserId(userId).orElseThrow(() ->
+                new ResourceNotFoundException(messageSource.getMessage("backend.exceptions.WLT005",
+                        new Object[]{userId},
+                        Locale.getDefault())));
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)

@@ -92,4 +92,13 @@ public class WalletController implements WalletApi {
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @Override
+    public ResponseEntity<WalletResponse> getWalletByUserId(UUID userId) {
+
+        WalletEntity foundWallet = walletService.getWalletByUserId(userId);
+        WalletResponse walletResponse = WalletMapper.INSTANCE.toWalletResponse(foundWallet);
+
+        return new ResponseEntity<>(walletResponse, HttpStatus.FOUND);
+    }
 }

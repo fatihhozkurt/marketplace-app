@@ -42,4 +42,7 @@ public interface WalletApi {
 
     @DeleteMapping
     ResponseEntity<HttpStatus> deleteWallet(@RequestParam @NotNull UUID walletId);
+
+    @GetMapping(USER + ID)
+    ResponseEntity<WalletResponse> getWalletByUserId(@RequestParam("userId") @NotNull UUID userId);
 }

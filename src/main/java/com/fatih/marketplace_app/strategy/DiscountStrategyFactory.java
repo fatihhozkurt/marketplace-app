@@ -22,7 +22,7 @@ public class DiscountStrategyFactory {
                 return new PercentageDiscountStrategyManager();
             default:
                 throw new BusinessException(messageSource.getMessage(
-                        "backend.exceptions.CMP002",
+                        "backend.exceptions.CMP003",
                         new Object[]{campaignType},
                         Locale.getDefault()));
         }
