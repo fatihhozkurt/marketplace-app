@@ -1,6 +1,7 @@
 package com.fatih.marketplace_app.dto.request.campaign;
 
 import com.fatih.marketplace_app.annotation.OptionalFieldValidation;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
@@ -23,6 +24,7 @@ public record UpdateCampaignRequest(
         String campaignCode,
 
         @Positive
+        @Digits(integer = 12, fraction = 2)
         BigDecimal discountValue,
 
         LocalDateTime startDate,

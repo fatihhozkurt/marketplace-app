@@ -7,6 +7,9 @@ public final class UrlConst {
     public final static String WALLET = "/wallet";
     public final static String CAMPAIGN = "/campaign";
     public final static String CART = "/cart";
+    public final static String ADDRESS = "/address";
+    public final static String ORDER = "/order";
+    public final static String CARTITEM = "/cart-item";
 
 
     public final static String ALL = "/all";
@@ -21,4 +24,6 @@ public final class UrlConst {
     public static final String EMAIL = "/email";
     public static final String PHONE = "/phone";
     public static final String CLEAR = "/clear";
+    public static final String ADD = "/add";
+    public static final String REMOVE = "/remove";
 }

@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 @EntityListeners(OrderListener.class)
 public class OrderEntity extends BaseEntity {
 
-    @Column(name = "final_price", nullable = false, precision = 10, scale = 2)
+    @Column(name = "final_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal finalPrice;
 
     @Enumerated(EnumType.STRING)
@@ -46,4 +46,8 @@ public class OrderEntity extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private UserEntity user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id", referencedColumnName = "id", nullable = false)
+    private AddressEntity address;
 }

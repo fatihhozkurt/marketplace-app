@@ -9,7 +9,6 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
-import org.springframework.beans.factory.support.ManagedArray;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -27,7 +26,7 @@ import java.util.List;
 public class CartEntity extends BaseEntity {
 
 
-    @Column(name = "cart_price", nullable = false, precision = 6, scale = 2)
+    @Column(name = "cart_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal cartPrice;
 
     //Checked

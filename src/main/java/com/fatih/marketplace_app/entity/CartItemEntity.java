@@ -25,15 +25,13 @@ public class CartItemEntity extends BaseEntity {
     @Column(name = "product_quantity", nullable = false)
     private Integer productQuantity;
 
-    @Column(name = "cart_item_price", nullable = false, precision = 6, scale = 2)
+    @Column(name = "cart_item_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal cartItemPrice;
 
-    //Checked
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id", referencedColumnName = "id", nullable = false)
     private CartEntity cart;
 
-    //Checked
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
     private ProductEntity product;

@@ -2,6 +2,8 @@ package com.fatih.marketplace_app.manager;
 
 import com.fatih.marketplace_app.dao.CartDao;
 import com.fatih.marketplace_app.entity.CartEntity;
+import com.fatih.marketplace_app.entity.UserEntity;
+import com.fatih.marketplace_app.exception.DataAlreadyExistException;
 import com.fatih.marketplace_app.exception.ResourceNotFoundException;
 import com.fatih.marketplace_app.manager.service.CartService;
 import com.fatih.marketplace_app.manager.service.UserService;
@@ -33,7 +35,15 @@ public class CartManager implements CartService {
     @Override
     public CartEntity createCart(CartEntity cartEntity) {
 
-        userService.getUserById(cartEntity.getUser().getId());
+        UserEntity foundUser = userService.getUserById(cartEntity.getUser().getId());
+
+        if (foundUser.getCart() != null) {
+            throw new DataAlreadyExistException(messageSource
+                    .getMessage("backend.exceptions.CRT003",
+                            new Object[]{},
+                            Locale.getDefault()));
+        }
+
         return cartDao.save(cartEntity);
     }
 
