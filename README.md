@@ -143,7 +143,9 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
 ### 🔘 validation
   - 🔧 `DiscountStrategyFactory`                # Determines which discount strategy to use based on the campaign type.           
 
-### 🔘 KnitShopApplication                      # Main application 
+### 🔘 MarketplaceAppApplication
+- 🔧 `MarketplaceAppApplication`                # Main application        
+
 
 ## ⚙️ Setup and Run
 
