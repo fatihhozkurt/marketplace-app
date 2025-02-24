@@ -10,6 +10,7 @@ public final class UrlConst {
     public final static String ADDRESS = "/address";
     public final static String ORDER = "/order";
     public final static String CARTITEM = "/cart-item";
+    public final static String INVOICE = "/invoice";
 
 
     public final static String ALL = "/all";
@@ -26,4 +27,5 @@ public final class UrlConst {
     public static final String CLEAR = "/clear";
     public static final String ADD = "/add";
     public static final String REMOVE = "/remove";
+    public static final String NUMBER = "/number";
 }

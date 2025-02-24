@@ -10,6 +10,8 @@ public class OrderListener {
 
     @PrePersist
     public void prePersist(OrderEntity orderEntity) {
-        orderEntity.setOrderStatus(OrderStatus.CONFIRMED);
+        orderEntity.setOrderStatus(OrderStatus.FINALIZED);
+
+
     }
 }
