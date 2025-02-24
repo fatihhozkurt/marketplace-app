@@ -5,6 +5,9 @@ import com.fatih.marketplace_app.entity.ProductEntity;
 import com.fatih.marketplace_app.exception.ResourceNotFoundException;
 import com.fatih.marketplace_app.manager.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +26,7 @@ public class ProductManager implements ProductService {
     private final ProductDao productDao;
     private final MessageSource messageSource;
 
+    @CachePut(value = "products", key = "#result.id")
     @Transactional
     @Override
     public ProductEntity createProduct(ProductEntity requestedProduct) {
@@ -36,6 +40,7 @@ public class ProductManager implements ProductService {
         return productDao.findAll(pageable);
     }
 
+    @Cacheable(value = "products", key = "#p0")
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     @Override
     public ProductEntity getProductById(UUID productId) {
@@ -45,7 +50,7 @@ public class ProductManager implements ProductService {
                         Locale.getDefault())));
     }
 
-    @Transactional
+    @CacheEvict(value = "products", key = "#p0.id")
     @Override
     public ProductEntity updateProduct(ProductEntity requestedProduct) {
 

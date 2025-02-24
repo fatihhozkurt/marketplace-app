@@ -11,7 +11,7 @@ public record UpdateProductRequest(
         @NotNull
         UUID id,
 
-        @OptionalFieldValidation(notBlank = true, min = 5, max = 50)
+        @OptionalFieldValidation(notBlank = true, min = 5, max = 100)
         String productName,
 
         @OptionalFieldValidation(notBlank = true, min = 50, max = 500)

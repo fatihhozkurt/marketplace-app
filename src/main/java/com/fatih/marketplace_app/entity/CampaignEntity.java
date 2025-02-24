@@ -1,5 +1,6 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fatih.marketplace_app.enums.CampaignType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,7 +25,7 @@ import java.util.List;
 @Table(name = "campaigns")
 @SQLDelete(sql = "UPDATE campaigns SET record_status = true WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
-public class CampaignEntity extends BaseEntity {
+public class CampaignEntity extends BaseEntity implements Serializable {
 
     @Column(name = "campaign_name", nullable = false, length = 50)
     private String campaignName;
@@ -47,6 +49,7 @@ public class CampaignEntity extends BaseEntity {
     @Column(name = "end_date", nullable = false)
     private LocalDateTime endDate;
 
+    @JsonManagedReference("campaign-cart")
     @OneToMany(mappedBy = "campaign", fetch = FetchType.LAZY)
     private List<CartEntity> cart;
 }

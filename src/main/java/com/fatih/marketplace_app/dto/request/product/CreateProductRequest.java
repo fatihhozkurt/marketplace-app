@@ -9,7 +9,7 @@ public record CreateProductRequest(
 
         @NotNull
         @NotBlank
-        @Size(min = 5, max = 50)
+        @Size(min = 5, max = 100)
         String productName,
 
         @NotNull

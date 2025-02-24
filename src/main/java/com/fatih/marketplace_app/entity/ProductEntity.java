@@ -1,5 +1,6 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -21,9 +23,9 @@ import java.util.List;
 @Table(name = "products")
 @SQLDelete(sql = "UPDATE products SET record_status = true, stock_quantity = 0, product_price = 0 WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
-public class ProductEntity extends BaseEntity {
+public class ProductEntity extends BaseEntity implements Serializable {
 
-    @Column(name = "product_name", nullable = false, length = 50)
+    @Column(name = "product_name", nullable = false, length = 100)
     private String productName;
 
     @Column(name = "product_description", nullable = false, length = 500)
@@ -35,7 +37,7 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "stock_quantity", nullable = false)
     private Long stockQuantity;
 
-    //Checked
+    @JsonManagedReference("product-cartItem")
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItemEntity> cartItems;
 }
