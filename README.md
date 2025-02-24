@@ -176,20 +176,20 @@ redis-cli
 
 
 ## 🔥 Features
-✅ **User, Product, Cart, Order and Wallet Management** 🏷️
-✅ **Consistent and Well-Structed Project** 💬
-✅ **Caching System With Redis** ❤️
-✅ **Exporting Invoice System with IText (it exports project directory)** 🏷️
-✅ **Self-Clears the Inactive Carts in Every 15 minutes** 🏷️
-✅ **Soft Delete Mechanism** 🔐
-✅ **Spring Boot REST API** 🛠️
-✅ **Dev and Prod Profiles** 🛠️
-✅ **User Password Encrption with Jasypt** 🔐
-✅ **Easy Mapping With MapStruct** ❤️
-✅ **Stategy Pattern With CampaignType** ❤️
-✅ **Layered Architecture and Loose Coupling With Dependency Injection** ❤️
-✅ **Global Exception Hangling and Well-Defined Validations** 🛠️
-✅ **PostgreSQL and no comment ❤️**
+- ✅ **User, Product, Cart, Order and Wallet Management** 🏷️
+- ✅ **Consistent and Well-Structed Project** 💬
+- ✅ **Caching System With Redis** ❤️
+- ✅ **Exporting Invoice System with IText (it exports project directory)** 🏷️
+- ✅ **Self-Clears the Inactive Carts in Every 15 minutes** 🏷️
+- ✅ **Soft Delete Mechanism** 🔐
+- ✅ **Spring Boot REST API** 🛠️
+- ✅ **Dev and Prod Profiles** 🛠️
+- ✅ **User Password Encrption with Jasypt** 🔐
+- ✅ **Easy Mapping With MapStruct** ❤️
+- ✅ **Stategy Pattern With CampaignType** ❤️
+- ✅ **Layered Architecture and Loose Coupling With Dependency Injection** ❤️
+- ✅ **Global Exception Hangling and Well-Defined Validations** 🛠️
+- ✅ **PostgreSQL and no comment ❤️**
 
 ## 📌 Example API Usage
 
