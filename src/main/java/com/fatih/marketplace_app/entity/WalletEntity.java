@@ -1,5 +1,7 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fatih.marketplace_app.entity.listener.WalletListener;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -23,17 +26,17 @@ import java.util.List;
 @SQLDelete(sql = "UPDATE wallets SET record_status = true, balance = 0 WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
 @EntityListeners(WalletListener.class)
-public class WalletEntity extends BaseEntity {
+public class WalletEntity extends BaseEntity implements Serializable {
 
     @Column(name = "balance", nullable = false, scale = 2, precision = 12)
     private BigDecimal balance;
 
+    @JsonBackReference("user-wallet")
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private UserEntity user;
 
-    @OneToMany(mappedBy = "wallet")
+    @JsonManagedReference("order-wallet")
+    @OneToMany(mappedBy = "wallet", fetch = FetchType.LAZY)
     private List<OrderEntity> orders;
-
-
 }

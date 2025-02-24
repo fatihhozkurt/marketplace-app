@@ -1,5 +1,6 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -20,7 +22,7 @@ import java.util.List;
 @Table(name = "addresses")
 @SQLDelete(sql = "UPDATE addresses SET record_status = true WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
-public class AddressEntity extends BaseEntity {
+public class AddressEntity extends BaseEntity implements Serializable {
 
     @Column(name = "country", nullable = false, length = 50)
     private String country;
@@ -46,6 +48,7 @@ public class AddressEntity extends BaseEntity {
     @Column(name = "zip_code", length = 5, nullable = false)
     private String zipCode;
 
+    @JsonManagedReference("address-orders")
     @OneToMany(mappedBy = "address")
     private List<OrderEntity> orders;
 }

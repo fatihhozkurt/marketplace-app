@@ -1,5 +1,6 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
@@ -20,7 +22,7 @@ import java.math.BigDecimal;
 @Table(name = "cart_items")
 @SQLDelete(sql = "UPDATE cart_items SET record_status = true, cart_item_price = 0, product_quantity = 0 WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
-public class CartItemEntity extends BaseEntity {
+public class CartItemEntity extends BaseEntity implements Serializable {
 
     @Column(name = "product_quantity", nullable = false)
     private Integer productQuantity;
@@ -28,10 +30,12 @@ public class CartItemEntity extends BaseEntity {
     @Column(name = "cart_item_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal cartItemPrice;
 
+    @JsonBackReference("cart-cartItem")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id", referencedColumnName = "id", nullable = false)
     private CartEntity cart;
 
+    @JsonBackReference("product-cartItem")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
     private ProductEntity product;

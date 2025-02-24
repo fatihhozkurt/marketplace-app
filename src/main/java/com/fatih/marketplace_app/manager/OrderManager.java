@@ -125,8 +125,7 @@ public class OrderManager implements OrderService {
 
         OrderEntity foundOrder = getOrderById(orderId);
 
-        WalletEntity wallet = foundOrder.getWallet();
-        wallet.setBalance(wallet.getBalance().add(foundOrder.getFinalPrice()));
+        foundOrder.getWallet().setBalance(foundOrder.getWallet().getBalance().add(foundOrder.getFinalPrice()));
 
         foundOrder.getCart().getCartItem().forEach(item -> {
             ProductEntity product = item.getProduct();

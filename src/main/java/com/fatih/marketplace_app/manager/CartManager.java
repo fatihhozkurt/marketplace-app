@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
+import static com.fatih.marketplace_app.constant.RecordStatus.PASSIVE;
+
 @Service
 @RequiredArgsConstructor
 public class CartManager implements CartService {

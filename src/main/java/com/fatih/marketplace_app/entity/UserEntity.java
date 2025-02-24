@@ -1,5 +1,6 @@
 package com.fatih.marketplace_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fatih.marketplace_app.converter.JasyptAttributeConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -21,7 +23,7 @@ import java.util.List;
 @Table(name = "users")
 @SQLDelete(sql = "UPDATE users SET record_status = true WHERE id = ?")
 @SQLRestriction("record_status <> 'true'")
-public class UserEntity extends BaseEntity {
+public class UserEntity extends BaseEntity implements Serializable {
 
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
@@ -39,12 +41,15 @@ public class UserEntity extends BaseEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @JsonManagedReference("user-wallet")
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private WalletEntity wallet;
 
+    @JsonManagedReference("cart-user")
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private CartEntity cart;
 
+    @JsonManagedReference("order-user")
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<OrderEntity> orders;
 }
