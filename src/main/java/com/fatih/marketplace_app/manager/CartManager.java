@@ -2,6 +2,7 @@ package com.fatih.marketplace_app.manager;
 
 import com.fatih.marketplace_app.dao.CartDao;
 import com.fatih.marketplace_app.entity.CartEntity;
+import com.fatih.marketplace_app.entity.CartItemEntity;
 import com.fatih.marketplace_app.entity.UserEntity;
 import com.fatih.marketplace_app.exception.DataAlreadyExistException;
 import com.fatih.marketplace_app.exception.ResourceNotFoundException;
@@ -43,7 +44,6 @@ public class CartManager implements CartService {
                             new Object[]{},
                             Locale.getDefault()));
         }
-
         return cartDao.save(cartEntity);
     }
 

@@ -88,9 +88,9 @@ public class WalletManager implements WalletService {
 
         WalletEntity foundWallet = getWalletById(walletId);
 
-        if (foundWallet.getBalance().compareTo(amount) <= 0) {
+        if (foundWallet.getBalance().compareTo(amount) < 0) {
             throw new BusinessException(
-                    messageSource.getMessage("backend.exceptions.WLT003", new Object[]{}, Locale.getDefault())
+                    messageSource.getMessage("backend.exceptions.WLT003", new Object[]{walletId}, Locale.getDefault())
             );
         }
 

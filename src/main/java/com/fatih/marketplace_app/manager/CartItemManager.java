@@ -43,10 +43,10 @@ public class CartItemManager implements CartItemService {
             updateExistingCartItem(existingCartItem, requestedCartItem.getProductQuantity(), foundProduct.getProductPrice());
             return cartItemDao.save(existingCartItem);
         } else {
-            requestedCartItem.setCartItemPrice(
-                    foundProduct.getProductPrice()
-                            .multiply(BigDecimal.valueOf(requestedCartItem.getProductQuantity()))
-            );
+            BigDecimal newCartItemPrice = foundProduct.getProductPrice()
+                    .multiply(BigDecimal.valueOf(requestedCartItem.getProductQuantity()));
+            requestedCartItem.setCartItemPrice(newCartItemPrice);
+            foundCart.setCartPrice(foundCart.getCartPrice().add(newCartItemPrice));
             return cartItemDao.save(requestedCartItem);
         }
     }
@@ -65,6 +65,7 @@ public class CartItemManager implements CartItemService {
         existingCartItem.setCartItemPrice(
                 productPrice.multiply(BigDecimal.valueOf(updatedQuantity))
         );
+        existingCartItem.getCart().setCartPrice(existingCartItem.getCart().getCartPrice().add(existingCartItem.getCartItemPrice()));
     }
 
 

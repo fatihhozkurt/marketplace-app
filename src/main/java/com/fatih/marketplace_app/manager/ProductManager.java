@@ -40,7 +40,7 @@ public class ProductManager implements ProductService {
     @Override
     public ProductEntity getProductById(UUID productId) {
         return productDao.findById(productId).orElseThrow(() -> new ResourceNotFoundException(messageSource
-                .getMessage("backend.exceptions.PR001",
+                .getMessage("backend.exceptions.PRD001",
                         new Object[]{productId},
                         Locale.getDefault())));
     }
@@ -73,9 +73,6 @@ public class ProductManager implements ProductService {
         }
         if (requestedProduct.getProductPrice() != null) {
             foundProduct.setProductPrice(requestedProduct.getProductPrice());
-        }
-        if (requestedProduct.getProductDescription() != null) {
-            foundProduct.setProductDescription(requestedProduct.getProductDescription());
         }
         if (requestedProduct.getStockQuantity() != null) {
             foundProduct.setStockQuantity(requestedProduct.getStockQuantity());

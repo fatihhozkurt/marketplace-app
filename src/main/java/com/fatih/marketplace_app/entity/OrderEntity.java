@@ -25,6 +25,9 @@ import java.math.BigDecimal;
 @EntityListeners(OrderListener.class)
 public class OrderEntity extends BaseEntity {
 
+    @Column(name = "order_number", nullable = false, length = 12, unique = true)
+    private String orderNumber;
+
     @Column(name = "final_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal finalPrice;
 
