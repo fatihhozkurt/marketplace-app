@@ -58,11 +58,12 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔘 `requestDTOs`               
   - 🔘 `responseDTOs`                
 
+### 🔘 listener (sets entities' before create or delete values)
+  - 🔧 `CartListener`
+  - 🔧 `OrderListener`
+  - 🔧 `WalletListener`    
+
 ### 🔘 entity
-  ## 🔘 listener (sets entities' before create or delete values)
-    - 🔧 `CartListener`
-    - 🔧 `OrderListener`
-    - 🔧 `WalletListener`    
   - 🔧 `AddressEntity`                  
   - 🔧 `BaseEntity`                   
   - 🔧 `CampaignEntity`               
