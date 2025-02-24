@@ -2,6 +2,18 @@
 
 Marketplace is a **Spring Boot**-based web application designed for shopping platform. Users can create their accounts, add products to their carts, load balance to their wallets and bought the cart as they needed. 🛠️
 
+# 🤖 Used Technologies
+- Java & Spring Boot
+- JPA
+- Maven
+- PostgreSQL
+- Redis
+- Restful API
+- MapStruct
+- Jasypt
+- IText
+- Git Version Control
+
 ## 🏠 Project Structure
 
 `com.fatih.marketplace_app`
