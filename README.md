@@ -2,7 +2,7 @@
 
 Marketplace is a **Spring Boot**-based web application designed for shopping platform. Users can create their accounts, add products to their carts, load balance to their wallets and bought the cart as they needed. 🛠️
 
-# 🤖 Used Technologies
+# 🤖 Used Tools and Technologies 
 - Java & Spring Boot
 - JPA
 - Maven
@@ -13,6 +13,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
 - Jasypt
 - IText
 - Git Version Control
+- To be honest ChatGPT sometimes made me proud. 
 
 ## 🏠 Project Structure
 
