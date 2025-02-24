@@ -164,6 +164,7 @@ redis-cli
 ✅ **Consistent and Well-Structed Project** 💬
 ✅ **Caching System With Redis** ❤️
 ✅ **Exporting Invoice System with IText (it exports project directory)** 🏷️
+✅ **Self-Clears the Inactive Carts in Every 15 minutes** 🏷️
 ✅ **Soft Delete Mechanism** 🔐
 ✅ **Spring Boot REST API** 🛠️
 ✅ **Dev and Prod Profiles** 🛠️
