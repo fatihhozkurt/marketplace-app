@@ -1,6 +1,6 @@
 # 🚀 Marketplace
 
-Marketplace is a **Spring Boot**-based web application designed for shopping platform. Users can create their accounts, add products to their carts, load balance to their wallets and bought the cart as they needed. 🛠️
+Marketplace is a **Spring Boot**-based web application designed as a shopping platform. Users can create their accounts, add products to their carts, load balance to their wallets and bought the cart as they wished. 🛠️
 
 # 🤖 Used Tools and Technologies 
 - Java & Spring Boot
@@ -13,7 +13,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
 - Jasypt
 - IText
 - Git Version Control
-- To be honest ChatGPT sometimes made me proud. 
+- No one's writing ChatGPT but to be honest it's being a game changer sometimes. 
 
 ## 🏠 Project Structure
 
@@ -23,11 +23,11 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `OptionalFieldValidation`               # Custom annotations for update dto's validations
 
 ### 🔘 config
-  - 🔧 `RedisConfig`                           # Redis-cache configuration class for serializing configurations
+  - 🔧 `RedisConfig`                           # Redis-cache configuration class about serializing
 
 ### 🔘 consts
-  - 🔧 `RecordStatus`                          # Record Status Constants for soft delete mechanism
-  - 🔧 `UrlConst`                              # URL Constants for API layer interfaces and methods
+  - 🔧 `RecordStatus`                          # Record Status constants for soft delete mechanism
+  - 🔧 `UrlConst`                              # URL constants for API layer interfaces' methods
 
 ### 🔘 api (api layer which includes enpoints)
   - 🔧 `AddressApi`         
@@ -56,7 +56,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `JasyptConfig`                          # Configures the encryption settings for Jasypt
   - 🔧 `SpringContextHolder`                   # Image DTO
 
-### 🔘 dao/data access objects (provide an abstraction layer for database operations (CRUD), separating persistence logic from the business layer.)
+### 🔘 dao/data access objects (provides an abstraction layer for database operations)
   - 🔧 `AddressDao`             
   - 🔧 `CampaignDao`              
   - 🔧 `CartDao`                
@@ -71,7 +71,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔘 `requestDTOs`               
   - 🔘 `responseDTOs`                
 
-### 🔘 listener (sets entities' before create or delete values)
+### 🔘 listener (sets necessary fields before an entity persist or delete to database)
   - 🔧 `CartListener`
   - 🔧 `OrderListener`
   - 🔧 `WalletListener`    
@@ -89,12 +89,12 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `WalletEntity`                                                                           
 
 ### 🔘 enums
-  - 🔧 `CampaignType`                          # Stores a campaign's type as fixed or percentage (discount value changes depends to campaign type)
+  - 🔧 `CampaignType`                          # Stores a campaign's type as fixed or percentage (discount value depends on campaign type)
   - 🔧 `OrderStatus`                           # Stores an order's current status as finalized or cancelled 
 
 ### 🔘 exception
   - 🔧 `GlobalExceptionHandler`                # Global exception handler
-  - 🔧 `ErrorResponse`                         # Error response object for returning only required fields
+  - 🔧 `ErrorResponse`                         # Error response object to returning only required error message fields
   - 🔧 `BusinessException`
   - 🔧 `DataAlreadyExistException`
   - 🔧 `ResourceNotFoundException`
@@ -104,7 +104,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `AddressManager`                                     
   - 🔧 `CampaignManager`
   - 🔧 `CartManager`                   
-  - 🔧 `CartItemManager`                       # transition table between cart and product 
+  - 🔧 `CartItemManager`                       # Transition table between cart and product 
   - 🔧 `InvoiceExportManager`
   - 🔧 `InvoiceManager`
   - 🔧 `OrderManager`
@@ -141,7 +141,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `PercentageDiscountStrategyManager`      # Applies a percentage-based discount to the cart price.
 
 ### 🔘 validation
-  - 🔧 `DiscountStrategyFactory`                # Determines which discount strategy to use based on the campaign type.           
+  - 🔧 `OptionalFieldValidator`                 # Defines custom annotation's field.           
 
 ### 🔘 MarketplaceAppApplication
 - 🔧 `MarketplaceAppApplication`                # Main application        
@@ -153,11 +153,11 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
 - 🖥️ **Java 17+**
 - 🌐 **Spring Boot 3+**
 - 🗄️ **PostgreSQL**
-- 🖥️ **Redis-cli**
+- 🖥️ **Redis CLI**
 
 ### 2️⃣ Clone the Project
 ```sh
-git clone https://github.com/fatihhozkurt/marketplace_app.git
+git clone https://github.com/fatihhozkurt/marketplace-app.git
 cd marketplace_app
 ```
 
@@ -179,17 +179,16 @@ redis-cli
 - ✅ **User, Product, Cart, Order and Wallet Management** 🏷️
 - ✅ **Consistent and Well-Structed Project** 💬
 - ✅ **Caching System With Redis** ❤️
-- ✅ **Exporting Invoice System with IText (it exports project directory)** 🏷️
-- ✅ **Self-Clears the Inactive Carts in Every 15 minutes** 🏷️
+- ✅ **Exporting Invoice System with IText (it exports to project directory)** 🏷️
+- ✅ **Self-Clearing the Inactive Carts in Every 15 minutes** 🏷️
 - ✅ **Soft Delete Mechanism** 🔐
-- ✅ **Spring Boot REST API** 🛠️
 - ✅ **Dev and Prod Profiles** 🛠️
 - ✅ **User Password Encrption with Jasypt** 🔐
-- ✅ **Easy Mapping With MapStruct** ❤️
-- ✅ **Stategy Pattern With CampaignType** ❤️
-- ✅ **Layered Architecture and Loose Coupling With Dependency Injection** ❤️
-- ✅ **Global Exception Hangling and Well-Defined Validations** 🛠️
-- ✅ **PostgreSQL and no comment ❤️**
+- ✅ **Easy Mapping with MapStruct** ❤️
+- ✅ **Strategy Pattern with CampaignType** ❤️
+- ✅ **Layered Architecture and Loose Coupling with Dependency Injection** ❤️
+- ✅ **Global Exception Handling and Well-Defined Validations** 🛠️
+- ✅ **PostgreSQL Relational Database ❤️**
 
 ## 📌 Example API Usage
 
@@ -223,11 +222,9 @@ POST /user
 
 I am currently working on integrating the following technologies into the project:
 - **JWT & Spring Security** for enhanced authentication 🔐
-- **Elasticsearch** for efficient search capabilities 🔍
-- **AWS S3** Image Management 📸
-
-These enhancements will improve the performance, security, and scalability of KnitShop. Stay tuned for updates! 🚀
-
+- **Elasticsearch** for full-text search capabilities 🔍
+- **AWS S3** for image management 📸
+- 
 ## 🤝 Contributing
 
 Feel free to open a **pull request** if you’d like to contribute.
