@@ -7,14 +7,14 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
 `com.fatih.marketplace_app`
 
 ### 🔘 annotation
-  - 🔧 `OptionalFieldValidation`    # Custom annotations for update dto's validations
+  - 🔧 `OptionalFieldValidation`               # Custom annotations for update dto's validations
 
 ### 🔘 config
-  - 🔧 `RedisConfig`               # Redis-cache configuration class for serializing configurations
+  - 🔧 `RedisConfig`                           # Redis-cache configuration class for serializing configurations
 
 ### 🔘 consts
-  - 🔧 `RecordStatus`               # Record Status Constants for soft delete mechanism
-  - 🔧 `UrlConst`                   # URL Constants for API layer interfaces and methods
+  - 🔧 `RecordStatus`                          # Record Status Constants for soft delete mechanism
+  - 🔧 `UrlConst`                              # URL Constants for API layer interfaces and methods
 
 ### 🔘 api (api layer which includes enpoints)
   - 🔧 `AddressApi`         
@@ -39,9 +39,9 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `WalletController`          
 
 ### 🔘 converter
-  - 🔧 `JasyptAttributeConverter`  # JPA attribute converter that automatically encrypts and decrypts database fields
-  - 🔧 `JasyptConfig`              # Configures the encryption settings for Jasypt
-  - 🔧 `SpringContextHolder`       # Image DTO
+  - 🔧 `JasyptAttributeConverter`              # JPA attribute converter that automatically encrypts and decrypts database fields
+  - 🔧 `JasyptConfig`                          # Configures the encryption settings for Jasypt
+  - 🔧 `SpringContextHolder`                   # Image DTO
 
 ### 🔘 dao/data access objects (provide an abstraction layer for database operations (CRUD), separating persistence logic from the business layer.)
   - 🔧 `AddressDao`             
@@ -68,7 +68,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `BaseEntity`                   
   - 🔧 `CampaignEntity`               
   - 🔧 `CartEntity`                   
-  - 🔧 `CartItemEntity`      # transition table between cart and product 
+  - 🔧 `CartItemEntity`                        # transition table between cart and product 
   - 🔧 `InvoiceEntity`
   - 🔧 `OrderEntity`
   - 🔧 `ProductEntity`
@@ -76,12 +76,12 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `WalletEntity`                                                                           
 
 ### 🔘 enums
-  - 🔧 `CampaignType`    # Stores a campaign's type as fixed or percentage (discount value changes depends to campaign type)
-  - 🔧 `OrderStatus`     # Stores an order's current status as finalized or cancelled 
+  - 🔧 `CampaignType`                          # Stores a campaign's type as fixed or percentage (discount value changes depends to campaign type)
+  - 🔧 `OrderStatus`                           # Stores an order's current status as finalized or cancelled 
 
 ### 🔘 exception
-  - 🔧 `GlobalExceptionHandler`     # Global exception handler
-  - 🔧 `ErrorResponse`              # Error response object for returning only required fields
+  - 🔧 `GlobalExceptionHandler`                # Global exception handler
+  - 🔧 `ErrorResponse`                         # Error response object for returning only required fields
   - 🔧 `BusinessException`
   - 🔧 `DataAlreadyExistException`
   - 🔧 `ResourceNotFoundException`
@@ -91,7 +91,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
   - 🔧 `AddressManager`                                     
   - 🔧 `CampaignManager`
   - 🔧 `CartManager`                   
-  - 🔧 `CartItemManager`      # transition table between cart and product 
+  - 🔧 `CartItemManager`                       # transition table between cart and product 
   - 🔧 `InvoiceExportManager`
   - 🔧 `InvoiceManager`
   - 🔧 `OrderManager`
@@ -130,7 +130,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
 ### 🔘 validation
   - 🔧 `DiscountStrategyFactory`                # Determines which discount strategy to use based on the campaign type.           
 
-### 🔘 KnitShopApplication           # 
+### 🔘 KnitShopApplication                      # Main application 
 
 ## ⚙️ Setup and Run
 
