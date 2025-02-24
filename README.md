@@ -8,7 +8,7 @@ Marketplace is a **Spring Boot**-based web application designed for shopping pla
 - Maven
 - PostgreSQL
 - Redis
-- Restful API
+- RESTful API
 - MapStruct
 - Jasypt
 - IText
