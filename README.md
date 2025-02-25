@@ -183,6 +183,8 @@ redis-cli
 - ✅ **Self-Clearing the Inactive Carts in Every 15 minutes** 🏷️
 - ✅ **Soft Delete Mechanism** 🔐
 - ✅ **Dev and Prod Profiles** 🛠️
+- ✅ **Log Into a File Mechanism (it creates a logs folder in the project folder and an application.txt file in it)** 🛠️
+- ✅ **Javadocs in Methods For Improving Readability of the Code** 💬
 - ✅ **User Password Encrption with Jasypt** 🔐
 - ✅ **Easy Mapping with MapStruct** ❤️
 - ✅ **Strategy Pattern with CampaignType** ❤️
