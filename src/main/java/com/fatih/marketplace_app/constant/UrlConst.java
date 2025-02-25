@@ -1,7 +1,11 @@
 package com.fatih.marketplace_app.constant;
 
+/**
+ * Defines constant URL paths for the application.
+ */
 public final class UrlConst {
 
+    /** Base paths for various resources. */
     public final static String USER = "/user";
     public final static String PRODUCT = "/product";
     public final static String WALLET = "/wallet";
@@ -12,11 +16,12 @@ public final class UrlConst {
     public final static String CARTITEM = "/cart-item";
     public final static String INVOICE = "/invoice";
 
-
+    /** Common endpoint segments. */
     public final static String ALL = "/all";
     public final static String ID = "/id";
 
 
+    /** Action-based endpoints. */
     public static final String PAY = "/pay";
     public static final String LOAD = "/load";
     public static final String CHANGE = "/change";

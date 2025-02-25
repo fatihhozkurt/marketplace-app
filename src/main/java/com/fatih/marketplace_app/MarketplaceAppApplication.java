@@ -10,6 +10,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 public class MarketplaceAppApplication {
 
+    /**
+     * Main method to start the Spring Boot application.
+     */
     public static void main(String[] args) {
         SpringApplication.run(MarketplaceAppApplication.class, args);
     }
