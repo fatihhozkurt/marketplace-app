@@ -8,12 +8,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.Locale;
 
+/**
+ * Factory class for providing the appropriate discount strategy based on the campaign type.
+ */
 @Service
 @RequiredArgsConstructor
 public class DiscountStrategyFactory {
 
     private final MessageSource messageSource;
 
+    /**
+     * Retrieves the discount strategy corresponding to the given campaign type.
+     *
+     * @param campaignType the type of the discount campaign
+     * @return an instance of {@link DiscountStrategyService} based on the campaign type
+     * @throws BusinessException if the campaign type is not recognized
+     */
     public DiscountStrategyService getStrategy(CampaignType campaignType) {
         switch (campaignType) {
             case FIXED:

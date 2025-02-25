@@ -14,39 +14,41 @@ import org.springframework.data.redis.serializer.RedisSerializationContext;
 
 import java.time.Duration;
 
+/**
+ * Redis cache configuration for Spring Boot application.
+ * Configures serialization settings and cache properties.
+ */
 @Configuration
 public class RedisConfig {
 
+
+    /**
+     * Configures Redis cache settings with JSON serialization.
+     *
+     * @return RedisCacheConfiguration instance.
+     */
     @Bean
     public RedisCacheConfiguration cacheConfiguration() {
 
-        // 1) ObjectMapper oluşturup yapılandırıyoruz
         ObjectMapper objectMapper = new ObjectMapper();
 
-        // Java 8 tarih/zaman tipleri için Jackson modülünü ekliyoruz
         objectMapper.registerModule(new JavaTimeModule());
 
-        // Tarihleri timestamp olarak yazmasın, ISO-8601 formatında yazsın
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-        // Polimorfik tipler için, dikkatli kullanılmalı (güvenlik vb.)
         objectMapper.activateDefaultTyping(
                 LaissezFaireSubTypeValidator.instance,
                 ObjectMapper.DefaultTyping.NON_FINAL
         );
 
-        // Görünürlük ayarı
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
 
-        // 2) Serializer'ı oluştururken ObjectMapper'ı kurucuya veriyoruz
         Jackson2JsonRedisSerializer<Object> serializer =
                 new Jackson2JsonRedisSerializer<>(objectMapper, Object.class);
 
-        // 3) SerializationPair oluşturuyoruz
         RedisSerializationContext.SerializationPair<Object> pair =
                 RedisSerializationContext.SerializationPair.fromSerializer(serializer);
 
-        // 4) Varsayılan Cache Config'i oluşturup serializer ile birleştiriyoruz
         return RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofMinutes(5))
                 .disableCachingNullValues()

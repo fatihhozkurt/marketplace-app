@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+/**
+ * Repository interface for managing {@link AddressEntity} persistence operations.
+ */
 @Repository
 public interface AddressRepository extends JpaRepository<AddressEntity, UUID> {
 }
