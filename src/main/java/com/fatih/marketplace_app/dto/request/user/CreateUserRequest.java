@@ -22,8 +22,7 @@ public record CreateUserRequest(
 
         @NotNull
         @NotEmpty(message = "Telefon numarası boş bırakılamaz.")
-        @Pattern(regexp = "^(\\+90|0)?5\\d{9}$",
-                message = "Geçersiz telefon numarası. Lütfen Türkiye formatında bir numara giriniz (örneğin, +905321234567 veya 05321234567).")
+        @Pattern(regexp = "^(\\+90|0)?5\\d{9}$")
         String phone,
 
         @NotNull
