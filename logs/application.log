@@ -1,1 +1,34 @@
-2025-02-25 04:24:32 [http-nio-8089-exec-2] INFO  c.f.m.manager.ProductManager - Creating a new product: com.fatih.marketplace_app.entity.ProductEntity@4430109d
+2025-02-26 23:15:00 [scheduling-1] INFO  c.f.m.manager.CartManager - Starting scheduled cleanup of expired carts
+2025-02-26 23:15:00 [scheduling-1] INFO  c.f.m.manager.CartManager - Found 0 expired carts to clean up
+2025-02-26 23:20:32 [http-nio-8089-exec-2] INFO  c.f.m.manager.UserManager - Creating user with email: barisates@gmail.com
+2025-02-26 23:20:32 [http-nio-8089-exec-2] INFO  c.f.m.manager.UserManager - Checking if email barisates@gmail.com or phone +905385405196 already exist
+2025-02-26 23:21:15 [http-nio-8089-exec-3] INFO  c.f.m.manager.UserManager - Fetching all users with pagination: Page request [number: 0, size 5, sort: UNSORTED]
+2025-02-26 23:21:50 [http-nio-8089-exec-7] INFO  c.f.m.manager.UserManager - Fetching user by ID: 60ed7045-e6ef-4292-ae3f-04c6c89b9e2d
+2025-02-26 23:21:52 [http-nio-8089-exec-8] INFO  c.f.m.manager.UserManager - Fetching user by ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:24:43 [http-nio-8089-exec-5] INFO  c.f.m.manager.UserManager - Fetching user by email: fatihhhozkurt@gmail.com
+2025-02-26 23:24:51 [http-nio-8089-exec-6] INFO  c.f.m.manager.UserManager - Updating user with ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:24:51 [http-nio-8089-exec-6] INFO  c.f.m.manager.UserManager - Fetching user by ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:24:51 [http-nio-8089-exec-6] INFO  c.f.m.manager.UserManager - Checking update conditions for user ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:24:55 [http-nio-8089-exec-10] INFO  c.f.m.manager.UserManager - Fetching user by email: fatihhhozkurt@gmail.com
+2025-02-26 23:25:58 [http-nio-8089-exec-3] INFO  c.f.m.manager.UserManager - Updating user with ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:25:58 [http-nio-8089-exec-3] INFO  c.f.m.manager.UserManager - Fetching user by ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:25:58 [http-nio-8089-exec-3] INFO  c.f.m.manager.UserManager - Checking update conditions for user ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:26:08 [http-nio-8089-exec-7] INFO  c.f.m.manager.UserManager - Updating user with ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:26:08 [http-nio-8089-exec-7] INFO  c.f.m.manager.UserManager - Fetching user by ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:26:08 [http-nio-8089-exec-7] INFO  c.f.m.manager.UserManager - Checking update conditions for user ID: 55eef91b-17a5-4884-8053-f84cd2732c5a
+2025-02-26 23:26:22 [http-nio-8089-exec-9] INFO  c.f.m.manager.UserManager - Fetching user by email: fatih.ozkurt21@gmail.com
+2025-02-26 23:26:51 [http-nio-8089-exec-4] INFO  c.f.m.manager.ProductManager - Creating a new product: com.fatih.marketplace_app.entity.ProductEntity@6ee2a822
+2025-02-26 23:27:30 [http-nio-8089-exec-6] INFO  c.f.m.manager.ProductManager - Creating a new product: com.fatih.marketplace_app.entity.ProductEntity@79d448a2
+2025-02-26 23:27:32 [http-nio-8089-exec-10] INFO  c.f.m.manager.ProductManager - Creating a new product: com.fatih.marketplace_app.entity.ProductEntity@147addaa
+2025-02-26 23:27:33 [http-nio-8089-exec-1] INFO  c.f.m.manager.ProductManager - Creating a new product: com.fatih.marketplace_app.entity.ProductEntity@3188958d
+2025-02-26 23:27:43 [http-nio-8089-exec-2] INFO  c.f.m.manager.ProductManager - Fetching all products with pagination: Page request [number: 0, size 12, sort: UNSORTED]
+2025-02-26 23:27:46 [http-nio-8089-exec-3] INFO  c.f.m.manager.ProductManager - Fetching all products with pagination: Page request [number: 0, size 12, sort: UNSORTED]
+2025-02-26 23:27:47 [http-nio-8089-exec-8] INFO  c.f.m.manager.ProductManager - Fetching all products with pagination: Page request [number: 0, size 12, sort: UNSORTED]
+2025-02-26 23:27:48 [http-nio-8089-exec-7] INFO  c.f.m.manager.ProductManager - Fetching all products with pagination: Page request [number: 0, size 12, sort: UNSORTED]
+2025-02-26 23:28:13 [http-nio-8089-exec-10] INFO  c.f.m.manager.ProductManager - Updating product: com.fatih.marketplace_app.entity.ProductEntity@e250faf
+2025-02-26 23:28:13 [http-nio-8089-exec-10] INFO  c.f.m.manager.ProductManager - Fetching product by ID: 01b1d77e-f57c-4c51-a319-6bcdb448552d
+2025-02-26 23:28:13 [http-nio-8089-exec-10] INFO  c.f.m.manager.ProductManager - Checking update conditions for product: 01b1d77e-f57c-4c51-a319-6bcdb448552d
+2025-02-26 23:28:16 [http-nio-8089-exec-1] INFO  c.f.m.manager.ProductManager - Updating product: com.fatih.marketplace_app.entity.ProductEntity@297d4ea3
+2025-02-26 23:28:16 [http-nio-8089-exec-1] INFO  c.f.m.manager.ProductManager - Fetching product by ID: 01b1d77e-f57c-4c51-a319-6bcdb448552d
+2025-02-26 23:28:16 [http-nio-8089-exec-1] INFO  c.f.m.manager.ProductManager - Checking update conditions for product: 01b1d77e-f57c-4c51-a319-6bcdb448552d
+2025-02-26 23:28:22 [http-nio-8089-exec-2] INFO  c.f.m.manager.ProductManager - Fetching product by ID: 01b1d77e-f57c-4c51-a319-6bcdb448552d

@@ -39,18 +39,22 @@ public class OptionalFieldValidator implements ConstraintValidator<OptionalField
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
 
+        //Null check
         if (value == null) {
             return true;
         }
 
+        //Whitespace check
         if (notBlank && value.isBlank()) {
             return false;
         }
 
+        //Length check
         if (value.length() < min || value.length() > max) {
             return false;
         }
 
+        //
         return value.matches(pattern);
     }
 }
