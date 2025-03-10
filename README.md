@@ -226,7 +226,7 @@ I am currently working on integrating the following technologies into the projec
 - **JWT & Spring Security** for enhanced authentication 🔐
 - **Elasticsearch** for full-text search capabilities 🔍
 - **AWS S3** for image management 📸
-- 
+  
 ## 🤝 Contributing
 
 Feel free to open a **pull request** if you’d like to contribute.
